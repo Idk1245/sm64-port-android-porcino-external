@@ -49,7 +49,7 @@ EXT_OPTIONS_MENU ?= 1
 # Disable text-based save-files by default
 TEXTSAVES ?= 0
 # Load resources from external files
-EXTERNAL_DATA ?= 0
+EXTERNAL_DATA ?= 1
 # Enable Discord Rich Presence
 DISCORDRPC ?= 0
 
@@ -900,7 +900,7 @@ $(BUILD_DIR)/%.inc.c: $(BUILD_DIR)/% %.png
 	hexdump -v -e '1/1 "0x%X,"' $< > $@
 	echo >> $@
 
-ifeq ($(EXTERNAL_DATA),0)
+ifeq ($(EXTERNAL_DATA),1)
 
 # Color Index CI8
 $(BUILD_DIR)/%.ci8: %.ci8.png
